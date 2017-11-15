@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h3>Similar Meanings</h3>
+
+  <ul class="nav">
+    <% 10.times.each do %>
+      <% a = [*('a'..'z')].sample(rand(3..7)).join %>
+      <li class="nav-item">
+        <h4><%= link_to "Meaning of #{a}", @site_info.meanings_url % {slug: a}, class: 'nav-link' %></h4>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="nav">
+    <% [*('a'..'z'), *('0'..'9')].each do |a| %>
+      <li class="nav-item">
+        <%= link_to a, "/#{a}", class: 'nav-link' %>
+      </li>
+    <% end %>
+  </ul>
+</div>

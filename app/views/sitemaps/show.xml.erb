@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% @sitemaps.each do |sitemap| %>
+  <url>
+    <loc>http://<%= @site_info.url %><%= @site_info.meanings_url % {slug: sitemap.slug} %></loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <% end %>
+</urlset>
