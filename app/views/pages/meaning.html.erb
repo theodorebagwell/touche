@@ -6,7 +6,7 @@
 <img src="/image/<%= @slug %>" class="img-fluid mb-4" alt="<%= @site_info.meaning_html_description % {slug: @slug} %>">
 <%= (@site_info.meaning_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
 <div class='two-column-text'>
-  <%= @lp_content.body.html_safe %>
+  <%= @lp_content&.body&.html_safe %>
 </div>
 <%= (@site_info.meaning_body % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
 <% @slug.each_char do |ch| %>

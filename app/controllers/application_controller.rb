@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 
   private
   def get_site_info
-    @site_info = SiteInfo.find_by(url: request.host)
+    @site_info = SiteInfo.find_by(url: request.host) || SiteInfo.find_by(url: 'localhost')
   end
 end

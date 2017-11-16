@@ -6,25 +6,45 @@ spec:
   selector:
     matchLabels:
       app: touche
-  replicas: 6
+  replicas: 3
   template:
     metadata:
       labels:
         app: touche
     spec:
       containers:
-      - name: touche
-        image: theodorebagwell/touche
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: touche
-              key: DATABASE_URL
-        - name: SECRET_KEY_BASE
-          valueFrom:
-            secretKeyRef:
-              name: touche
-              key: SECRET_KEY_BASE
-        ports:
-        - containerPort: 3000
+        - name: touche
+          image: theodorebagwell/touche:2
+          env:
+          - name: DATABASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: touche
+                key: DATABASE_URL
+          - name: SECRET_KEY_BASE
+            valueFrom:
+              secretKeyRef:
+                name: touche
+                key: SECRET_KEY_BASE
+          ports:
+          - containerPort: 3000
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
+          command: ["/cloud_sql_proxy", "--dir=/cloudsql", "-instances=theodore-bagwell:us-central1:touche=tcp:5432", "-credential_file=/secrets/cloudsql/credentials.json"]
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
+            - name: ssl-certs
+              mountPath: /etc/ssl/certs
+            - name: cloudsql
+              mountPath: /cloudsql
+      volumes:
+        - name: cloudsql-instance-credentials
+          secret:
+            secretName: cloudsql-instance-credentials
+        - name: cloudsql
+          emptyDir:
+        - name: ssl-certs
+          hostPath:
+            path: /etc/ssl/certs

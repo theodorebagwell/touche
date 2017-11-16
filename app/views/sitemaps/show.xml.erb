@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <% @sitemaps.each do |sitemap| %>
   <url>
-    <loc>http://<%= @site_info.url %><%= @site_info.meaning_url % {slug: sitemap.slug} %></loc>
+    <loc>http://<%= request.host %><%= @site_info.meaning_url % {slug: sitemap.slug} %></loc>
     <changefreq>daily</changefreq>
   </url>
   <% end %>
