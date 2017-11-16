@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: touche-deployment
+spec:
+  selector:
+    matchLabels:
+      app: touche
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app: touche
+    spec:
+      containers:
+      - name: touche
+        image: theodorebagwell/touche
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: touche
+              key: DATABASE_URL
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              name: touche
+              key: SECRET_KEY_BASE
+        ports:
+        - containerPort: 3000

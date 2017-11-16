@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114230914) do
+ActiveRecord::Schema.define(version: 20171115231747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171114230914) do
     t.string "name"
     t.text "meta_tags"
     t.text "site_description"
-    t.text "meaning_description"
+    t.text "meaning_image_description"
     t.text "meaning_intro"
     t.text "meaning_body"
     t.text "letter_intro"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20171114230914) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "site_intro"
-    t.string "meanings_url"
-    t.string "meanings_html_description"
+    t.string "meaning_url"
+    t.string "meaning_html_description"
   end
 
   create_table "sitemaps", force: :cascade do |t|

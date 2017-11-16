@@ -1,11 +1,14 @@
 <% content_for :head do %>
-  <title><%= @site_info.meanings_html_description % {slug: @slug} %></title>
-  <meta name="description" content="<%= @site_info.meanings_html_description % {slug: @slug} %>">
+  <title><%= @site_info.meaning_html_description % {slug: @slug} %></title>
+  <meta name="description" content="<%= @site_info.meaning_html_description % {slug: @slug} %>">
 <% end %>
 <%= render 'search' %>
+<img src="/image/<%= @slug %>" class="img-fluid mb-4" alt="<%= @site_info.meaning_html_description % {slug: @slug} %>">
 <%= (@site_info.meaning_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
-<%= @lp_content.body.html_safe %>
+<div class='two-column-text'>
+  <%= @lp_content.body.html_safe %>
+</div>
 <%= (@site_info.meaning_body % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
 <% @slug.each_char do |ch| %>
-  <%= (@site_info.letter_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num, letter: ch, letter_definition: @site_contents.find_by(title: ch.upcase)&.body}).html_safe %>
+  <%= (@site_info.letter_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num, letter: ch, letter_definition: "<div class='two-column-text'>#{@site_contents.find_by(title: ch.upcase)&.body}</div>"}).html_safe %>
 <% end %>

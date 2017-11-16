@@ -5,7 +5,7 @@
     <% 10.times.each do %>
       <% a = [*('a'..'z')].sample(rand(3..7)).join %>
       <li class="nav-item">
-        <h4><%= link_to "Meaning of #{a}", @site_info.meanings_url % {slug: a}, class: 'nav-link' %></h4>
+        <h4><%= link_to "Meaning of #{a}", @site_info.meaning_url % {slug: a}, class: 'nav-link' %></h4>
       </li>
     <% end %>
   </ul>
