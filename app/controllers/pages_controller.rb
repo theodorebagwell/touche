@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
     drawable = Magick::Draw.new
     drawable.pointsize = 100
-    drawable.font = 'config/LiberationMono-Bold.ttf'
+    drawable.font = "#{Rails.root}/lib/assets/LiberationMono-Bold.ttf"
     drawable.fill = text_color
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, @site_info.meaning_image_description % {slug: @slug})
