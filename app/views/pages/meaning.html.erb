@@ -9,7 +9,7 @@
   <%= @lp_content&.body&.html_safe %>
 </div>
 <%= (@site_info.meaning_body % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
-<% @slug.each_char do |ch| %>
+<% @slug.chars.to_a.uniq.each do |ch| %>
   <%= (@site_info.letter_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num, letter: ch, letter_definition: "<div class='two-column-text'>#{@site_contents.find_by(title: ch.upcase)&.body}</div>"}).html_safe %>
 <% end %>
 <%= content_for :similar_heading { (@site_info.meaning_outro % {slug: @slug}) } %>

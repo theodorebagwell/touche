@@ -1,7 +1,7 @@
 FROM ruby:2.4.1-alpine
 MAINTAINER Theodore Bagwell <theodore@bagwell.com>
 
-RUN apk update && apk add --update --no-cache nodejs build-base git bash postgresql-dev tzdata imagemagick imagemagick-dev ghostscript ghostscript-fonts
+RUN apk update && apk add --update --no-cache nodejs build-base git bash postgresql-dev tzdata imagemagick imagemagick-dev ghostscript ghostscript-fonts lame espeak
 
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true

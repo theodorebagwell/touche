@@ -2,7 +2,13 @@ require 'rmagick'
 require 'rvg/rvg'
 
 class PagesController < ApplicationController
+  include ESpeak
+
   def home;end
+
+  def audio
+    send_data ESpeak::Speech.new(params[:slug]).bytes(), type: 'audio/mpeg', disposition: 'inline'
+  end
 
   def image
     @slug = params[:slug].upcase
