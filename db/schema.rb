@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115231747) do
+ActiveRecord::Schema.define(version: 20171117013323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,9 @@ ActiveRecord::Schema.define(version: 20171115231747) do
     t.text "site_intro"
     t.string "meaning_url"
     t.string "meaning_html_description"
-  end
-
-  create_table "sitemaps", force: :cascade do |t|
-    t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "search_placeholder"
+    t.text "similar_heading"
+    t.text "similar_body"
   end
 
   add_foreign_key "site_contents", "site_infos"

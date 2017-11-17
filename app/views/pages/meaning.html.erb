@@ -12,3 +12,4 @@
 <% @slug.each_char do |ch| %>
   <%= (@site_info.letter_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num, letter: ch, letter_definition: "<div class='two-column-text'>#{@site_contents.find_by(title: ch.upcase)&.body}</div>"}).html_safe %>
 <% end %>
+<%= content_for :similar_heading { (@site_info.meaning_outro % {slug: @slug}) } %>
