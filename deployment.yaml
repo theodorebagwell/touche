@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: touche
-          image: theodorebagwell/touche:4
+          image: theodorebagwell/touche:5
           env:
           - name: DATABASE_URL
             valueFrom:
