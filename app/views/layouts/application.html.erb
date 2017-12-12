@@ -17,14 +17,14 @@
     <%= render 'layouts/header'%>
     <div class="container-fluid">
       <div class="row">
-        <div class="col">
+        <div class="col-lg-2">
           <%= @site_info.side_info&.html_safe %>
         </div>
         <div class="col-lg-8">
           <%= yield %>
           <%= render 'layouts/footer'%>
         </div>
-        <div class="col">
+        <div class="col-lg-2">
           <%= @site_info.side_info&.html_safe %>
         </div>
       </div>
