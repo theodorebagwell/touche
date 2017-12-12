@@ -1,12 +1,8 @@
-<div class="my-3">
-  <h1><%= @site_info.site_intro %></h1>
-
-  <form onSubmit="return searchMeaning();">
-    <div class="input-group input-group-lg">
-      <input type="text" class="form-control" placeholder="<%= @site_info.search_placeholder %>" data-search-input>
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-dark">Submit</button>
-      </span>
-    </div>
-  </form>
-</div>
+<form onSubmit="return searchMeaning();">
+  <div class="input-group input-group-lg">
+    <input type="text" class="form-control" placeholder="<%= @site_info.search_placeholder %>" data-search-input>
+    <span class="input-group-btn">
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </span>
+  </div>
+</form>

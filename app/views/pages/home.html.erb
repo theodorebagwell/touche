@@ -2,4 +2,7 @@
   <title><%= @site_info.site_description %></title>
   <meta name="description" content="<%= @site_info.site_description %>">
 <% end %>
-<%= render 'search' %>
+<div class="my-3">
+  <h1><%= @site_info.site_intro %></h1>
+  <%= render 'search' %>
+</div>
