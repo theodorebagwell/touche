@@ -1,6 +1,5 @@
 <% content_for :head do %>
-  <title><%= @site_info.site_description %></title>
-  <meta name="description" content="<%= @site_info.site_description %>">
+  <%= @site_info.site_description.html_safe %>
 <% end %>
 <div class="my-3">
   <h1><%= @site_info.site_intro %></h1>

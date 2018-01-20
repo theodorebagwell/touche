@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212160903) do
+ActiveRecord::Schema.define(version: 20180120205050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,12 @@ ActiveRecord::Schema.define(version: 20171212160903) do
     t.datetime "updated_at", null: false
     t.text "site_intro"
     t.string "meaning_url"
-    t.string "meaning_html_description"
+    t.text "meaning_html_description"
     t.string "search_placeholder"
     t.text "similar_heading"
     t.text "similar_body"
     t.text "side_info"
+    t.boolean "active", default: false
   end
 
   add_foreign_key "site_contents", "site_infos"

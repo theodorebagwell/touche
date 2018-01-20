@@ -7,8 +7,9 @@
 <ul class="nav">
   <% 10.times.each do %>
     <% a = ([*('a'..'z')]*3).sample(rand(6..8)).join %>
+    <% rand_site = SiteInfo.active.all.sample %>
     <li class="nav-item">
-      <h4><%= link_to  @site_info.similar_body % {slug: a.upcase}, @site_info.meaning_url % {slug: a}, class: 'nav-link' %></h4>
+      <h4><%= link_to  rand_site.similar_body % {slug: a.upcase}, rand_site.meaning_url % {slug: a}, class: 'nav-link' %></h4>
     </li>
   <% end %>
 </ul>

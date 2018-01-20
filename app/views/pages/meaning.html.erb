@@ -1,11 +1,10 @@
 <% content_for :head do %>
-  <title><%= @site_info.meaning_html_description % {slug: @slug} %></title>
-  <meta name="description" content="<%= @site_info.meaning_html_description % {slug: @slug} %>">
+  <%= (@site_info.meaning_html_description % {slug: @slug}).html_safe %>
 <% end %>
 <div class="my-3">
   <%= render 'search' %>
 </div>
-<img src="/image/<%= @slug %>" class="img-fluid mb-4" alt="<%= @site_info.meaning_html_description % {slug: @slug} %>">
+<img src="/image/<%= @slug %>" class="img-fluid mb-4" alt="<%= @site_info.meaning_image_description % {slug: @slug} %>">
 <%= (@site_info.meaning_intro % {slug: @slug, slug_link: @slug_link, lp_num: @lp_num}).html_safe %>
 <div class='two-column-text'>
   <%= @lp_content&.body&.html_safe %>
