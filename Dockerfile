@@ -13,5 +13,4 @@ ADD Gemfile* /home/app/
 RUN bundle install --without development test --jobs 20
 ADD . /home/app
 
-RUN bundle exec rails assets:precompile DATABASE_URL=postgresql://localhost/null SECRET_KEY_BASE=dummykey
 CMD bundle exec puma -C /home/app/config/puma.rb

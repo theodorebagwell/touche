@@ -15,8 +15,8 @@ class PagesController < ApplicationController
   def image
     format = 'png'
     width, height = 2000,500
-    color = '#343a40'
-    text_color = 'white'
+    color = @site_info.image_bg_color
+    text_color = @site_info.image_text_color
 
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = color

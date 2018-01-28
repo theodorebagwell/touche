@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120205050) do
+ActiveRecord::Schema.define(version: 20180128153101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,9 @@ ActiveRecord::Schema.define(version: 20180120205050) do
     t.text "similar_body"
     t.text "side_info"
     t.boolean "active", default: false
+    t.text "js_css"
+    t.string "image_bg_color"
+    t.string "image_text_color"
   end
 
   add_foreign_key "site_contents", "site_infos"
