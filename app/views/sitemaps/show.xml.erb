@@ -3,9 +3,9 @@
   <% @sitemaps.each do |sitemap| %>
   <url>
     <% if sitemap.strip.present? %>
-    <loc>http://<%= request.host %><%= @site_info.meaning_url % {slug: sitemap.strip} %></loc>
+    <loc>https://<%= request.host %><%= @site_info.meaning_url % {slug: sitemap.strip} %></loc>
     <% else %>
-    <loc>http://<%= request.host %></loc>
+    <loc>https://<%= request.host %></loc>
     <% end %>
     <changefreq>daily</changefreq>
   </url>

@@ -2,7 +2,7 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <% @number_of_pages.times.each do |n| %>
     <sitemap>
-      <loc>http://<%= request.domain %>/sitemaps/<%= n %>.xml</loc>
+      <loc>https://<%= request.domain %>/sitemaps/<%= n %>.xml</loc>
     </sitemap>
   <% end %>
 </sitemapindex>
